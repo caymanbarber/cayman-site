@@ -1,0 +1,7 @@
+:8080 {
+	reverse_proxy /api/* backend:3000
+
+	root * /srv/site
+	try_files {path} /index.html
+	file_server
+}

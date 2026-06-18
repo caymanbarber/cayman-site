@@ -6,10 +6,10 @@ Personal portfolio and web app playground for Cayman Barber. Built to learn Rust
 
 ```
 backend/   — Rust (Axum) API server
-frontend/  — Vite + Vanilla TypeScript
+frontend/  — Vite + Vanilla TypeScript + Caddy (reverse proxy & static serving)
 ```
 
-The backend serves API routes under `/api/*` and serves the frontend build as static files in production. During development, Vite proxies `/api` requests to the backend.
+Caddy is the single entry point in production: it serves the frontend build as static files and reverse proxies `/api/*` to the Axum backend. During development, Vite proxies `/api` requests to the backend instead.
 
 ## Design System
 
@@ -30,7 +30,7 @@ npm install                # first time only
 npm run dev                # starts on :5173, proxies /api to :3000
 
 # Docker (from root)
-docker compose up --build  # backend :3000, frontend :8080
+docker compose up --build  # Caddy on :8080, proxies /api to backend
 ```
 
 ## API Routes

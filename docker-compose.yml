@@ -1,14 +1,12 @@
 services:
   backend:
     build: ./backend
-    ports:
-      - "3000:3000"
     environment:
       - PORT=3000
       - STATIC_DIR=/srv/static
       - RUST_LOG=info
 
-  frontend:
+  caddy:
     build: ./frontend
     ports:
       - "8080:8080"
