@@ -5,17 +5,24 @@ Thumbs.db
 # logs
 *.log
 
-# frontend (future-proofing)
-node_modules/
-dist/
-
-#AI
-CLAUDE.md
-
 # env
 .env
 .env.local
+.env.*.local
 
 # Rust
-/target
+backend/target/
 **/*.rs.bk
+
+# Node / Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Docker
+docker-compose.override.yml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

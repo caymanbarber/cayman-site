@@ -1,0 +1,26 @@
+:root {
+  --color-bg: #0f0f11;
+  --color-surface: #1a1a1f;
+  --color-border: #2e2e38;
+  --color-text-primary: #e8e6e1;
+  --color-text-muted: #7a7a8c;
+  --color-accent: #e05c3a;
+  --color-accent-dim: #7a2e18;
+
+  --font-sans: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  --max-width: 680px;
+  --border-radius: 6px;
+  --border-radius-lg: 12px;
+
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+}
