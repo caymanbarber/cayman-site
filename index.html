@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cayman.fyi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* === reset === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* === variables === */
+    :root {
+      --color-bg:           #0f0f11;
+      --color-surface:      #1a1a1f;
+      --color-border:       #2e2e38;
+      --color-text-primary: #e8e6e1;
+      --color-text-muted:   #7a7a8c;
+      --color-accent:       #e05c3a; /* rust-orange — carry this forward */
+      --color-accent-dim:   #7a2e18;
+      --color-dog-bg:       #2a2a35;
+
+      --font-sans: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+      --space-xs:  0.5rem;
+      --space-sm:  1rem;
+      --space-md:  1.5rem;
+      --space-lg:  2.5rem;
+      --space-xl:  4rem;
+      --space-2xl: 6rem;
+
+      --max-width:       680px;
+      --border-radius:   6px;
+      --border-radius-lg: 12px;
+
+      --transition-fast: 150ms ease;
+      --transition-base: 250ms ease;
+    }
+
+    /* === base === */
+    html { font-size: 16px; }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: opacity var(--transition-fast);
+    }
+    a:hover { opacity: 0.75; }
+
+    /* === components === */
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    /* domain hero */
+    .domain-hero {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .domain-name {
+      font-family: var(--font-mono);
+      font-size: clamp(1.75rem, 6vw, 2.75rem);
+      font-weight: 500;
+      color: var(--color-accent);
+      letter-spacing: -0.02em;
+    }
+
+    .domain-fyi {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+
+    /* status badge */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--color-accent);
+      background: var(--color-surface);
+      border: 1px solid var(--color-accent-dim);
+      border-radius: var(--border-radius);
+      padding: 0.3rem 0.75rem;
+      width: fit-content;
+    }
+
+    .status-badge::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    /* hero */
+    .hero { display: flex; flex-direction: column; gap: 0.6rem; }
+
+    h1 {
+      font-size: clamp(2.25rem, 8vw, 3.5rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .tagline {
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      font-weight: 400;
+      color: var(--color-text-muted);
+      line-height: 1.4;
+    }
+
+    .tagline .this {
+      color: var(--color-accent);
+      font-size: 1.45em;
+      font-weight: 600;
+      font-style: italic;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      vertical-align: middle;
+    }
+
+    /* dog placeholder */
+    .dog-placeholder {
+      width: 100%;
+      max-width: 340px;
+      aspect-ratio: 4 / 3;
+      background: var(--color-dog-bg);
+      border: 1px dashed var(--color-border);
+      border-radius: var(--border-radius-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+    }
+
+    .dog-placeholder .dog-label {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+
+    .dog-placeholder .dog-caption {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-border);
+    }
+
+    /* description */
+    .description {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .description p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--color-text-primary);
+      line-height: 1.75;
+    }
+
+    /* footer */
+    footer {
+      margin-top: var(--space-lg);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+    }
+
+    /* === responsive === */
+    @media (max-width: 480px) {
+      body { padding: var(--space-md) var(--space-sm); }
+      .dog-placeholder { max-width: 100%; aspect-ratio: 1 / 1; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+
+    <div class="domain-hero">
+      <span class="domain-name">cayman.fyi</span>
+      <span class="domain-fyi">fyi: it's not ready yet.</span>
+    </div>
+
+    <span class="status-badge">// status: compiling...</span>
+
+    <div class="hero">
+      <h1>Cayman Barber</h1>
+      <p class="tagline">I make things. Currently building&hellip; <span class="this">this</span></p>
+    </div>
+
+    <div class="dog-placeholder">
+      <span class="dog-label">[&nbsp;&nbsp;your dog here&nbsp;&nbsp;]</span>
+      <span class="dog-caption">hard hat optional</span>
+    </div>
+
+    <div class="description">
+      <p>This site is under construction. Aggressively.</p>
+      <p>In the meantime, my dog has claimed my desk chair and I have claimed the floor.</p>
+      <p>Check back soon, or don't&nbsp;&mdash;&nbsp;this will compile eventually.</p>
+    </div>
+
+    <footer>© 2026 Cayman Barber &middot; Built with Rust (eventually)</footer>
+
+  </main>
+</body>
+</html>
