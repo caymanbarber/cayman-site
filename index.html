@@ -150,31 +150,20 @@
       vertical-align: middle;
     }
 
-    /* dog placeholder */
     .dog-placeholder {
       width: 100%;
       max-width: 340px;
       aspect-ratio: 4 / 3;
-      background: var(--color-dog-bg);
-      border: 1px dashed var(--color-border);
       border-radius: var(--border-radius-lg);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-xs);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
     }
 
-    .dog-placeholder .dog-label {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--color-text-muted);
-    }
-
-    .dog-placeholder .dog-caption {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--color-border);
+    .dog-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* description */
@@ -222,13 +211,11 @@
     </div>
 
     <div class="dog-placeholder">
-      <span class="dog-label">[&nbsp;&nbsp;your dog here&nbsp;&nbsp;]</span>
-      <span class="dog-caption">hard hat optional</span>
+      <img src="bingo.PNG" alt="Bingo" />
     </div>
 
     <div class="description">
-      <p>This site is under construction. Aggressively.</p>
-      <p>In the meantime, my dog has claimed my desk chair and I have claimed the floor.</p>
+      <p>This site is under construction.</p>
       <p>Check back soon, or don't&nbsp;&mdash;&nbsp;this will compile eventually.</p>
     </div>
 

@@ -9,6 +9,9 @@ Thumbs.db
 node_modules/
 dist/
 
+#AI
+CLAUDE.md
+
 # env
 .env
 .env.local
