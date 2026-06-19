@@ -44,6 +44,19 @@ docker compose up --build  # Caddy on :8080, proxies /api to backend
 
 Raspberry Pi (ARM64) on local network. Docker images should build for `linux/arm64`. May eventually connect to AWS services (Lambda, S3, DynamoDB).
 
+### HTTPS
+Caddy handles TLS — Axum stays HTTP internally. Use `tls internal` for LAN, swap to real domain for auto Let's Encrypt. Plan: Tailscale for dev/admin SSH, Cloudflare Tunnel for public site.
+
+### Security (Future Admin Endpoints)
+- Auth via API key in `Authorization` header, checked by Axum extractor
+- Never run raw shell commands from input — fixed action set only
+- Admin routes behind Tailscale, public routes through Cloudflare
+
+### IoT (Future)
+- Devices POST to `/api/devices/data` with device API keys
+- Server pushes to browsers via SSE (`axum::response::sse::Sse` + `tokio::sync::broadcast`)
+- MQTT later if needed for constrained devices
+
 ## Project Goals
 
 1. Learn Rust by building real things
