@@ -1,0 +1,11 @@
+:8080 {
+    # reverse_proxy /api/* backend:3000
+
+    root * /srv/site
+    file_server
+
+    log {
+        output file /var/log/caddy/access.log
+        format json
+    }
+}
