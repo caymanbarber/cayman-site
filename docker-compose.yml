@@ -9,7 +9,7 @@ services:
 
   cloudflared:
     image: cloudflare/cloudflared:latest
-    command: tunnel run
+    command: tunnel --config /etc/cloudflared/config.yml run
     volumes:
       - ${HOME}/.cloudflared:/etc/cloudflared
     depends_on:
