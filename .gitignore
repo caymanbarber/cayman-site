@@ -4,6 +4,7 @@ Thumbs.db
 
 # logs
 *.log
+logs/
 
 # frontend (future-proofing)
 node_modules/
